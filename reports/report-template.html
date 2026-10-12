@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>{{REPORT_TITLE}}</title>
+  <link rel="stylesheet" href="./assets/report.css">
+</head>
+<body>
+  <a class="skip-link" href="#report-content">Pular para o conteúdo</a>
+  <header class="report-header">
+    <div class="header-content">
+      <p class="eyebrow">{{REPORT_TYPE}}</p>
+      <h1>{{REPORT_TITLE}}</h1>
+      <p class="report-subtitle">{{REPORT_SUBTITLE}}</p>
+      <div class="report-meta">{{REPORT_METADATA}}</div>
+    </div>
+  </header>
+  <main id="report-content" class="report-main">
+    <section class="toolbar" aria-label="Pesquisar e filtrar relatório">
+      <label class="search-control">
+        <span>Buscar</span>
+        <input type="search" data-report-search placeholder="Buscar no relatório..." autocomplete="off">
+      </label>
+      <label class="filter-control">
+        <span>Prioridade</span>
+        <select data-filter-priority>
+          <option value="all">Todas</option>
+          <option value="p0">P0 — Crítica</option>
+          <option value="p1">P1 — Alta</option>
+          <option value="p2">P2 — Média</option>
+          <option value="p3">P3 — Baixa</option>
+          <option value="none">Sem prioridade</option>
+        </select>
+      </label>
+      <label class="filter-control">
+        <span>Status</span>
+        <select data-filter-status>
+          <option value="all">Todos</option>
+          <option value="not-executed">Não executado</option>
+          <option value="passed">Passou</option>
+          <option value="failed">Falhou</option>
+          <option value="blocked">Bloqueado</option>
+          <option value="pending">Pendente</option>
+          <option value="conflict">Conflito</option>
+          <option value="none">Sem status</option>
+        </select>
+      </label>
+      <div class="toolbar-actions">
+        <button type="button" class="button button-secondary" data-expand-all>Expandir tudo</button>
+        <button type="button" class="button button-secondary" data-collapse-all>Recolher tudo</button>
+      </div>
+      <p class="result-count" data-result-count role="status" aria-live="polite"></p>
+    </section>
+    <section class="report-summary" aria-label="Resumo">
+{{REPORT_SUMMARY}}
+    </section>
+    <div class="report-content">
+{{REPORT_BODY}}
+    </div>
+  </main>
+  <footer class="report-footer">
+    <p>Relatório gerado para apoio à qualidade. Confirme fontes, contexto e pendências antes de tomar decisões.</p>
+  </footer>
+  <script src="./assets/report.js" defer></script>
+</body>
+</html>
